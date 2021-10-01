@@ -21,7 +21,7 @@ Feature: Login
     And El Titulo de la Pagina de Home Page es "Bienvenida"
     But El boton Login no deberia estar presente en la pagina Home Page del AppMovil
        """
-       nombre:xcx
+       nombre:
        MonoDisponibleCuenta: 1000
        LineaDisponible: 1000
        """
