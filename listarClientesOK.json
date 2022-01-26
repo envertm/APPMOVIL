@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "f672f8cc-5bb1-45ec-97de-700e8769fd7b",
+		"name": "PruebasApi2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ListaUsuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    pm.expect(jsonData.total_pages).to.eql(2);\r",
+							"});\r",
+							"pm.test(\"valir ID\", function (){\r",
+							"  pm.expect(jsonData.data[0].id).to.eql(7);\r",
+							"});\r",
+							"pm.test(\"validar email\", function (){\r",
+							"   pm.expect(jsonData.data[0].email).to.eql(\"michael.lawson@reqres.in\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"First_name\", function(){\r",
+							" pm.expect(jsonData.data[0].first_name).to.eql(\"Michael\");\r",
+							"});\r",
+							"pm.test(\"last_name\", function(){\r",
+							"    pm.expect(jsonData.data[0].last_name).to.eql(\"Lawson\");\r",
+							"})\r",
+							"\r",
+							"\r",
+							"//ojo aqui\r",
+							"pm.test(\"support\", function(){\r",
+							"pm.expect(jsonData.support.url).to.eql(\"https://reqres.in/#support-heading\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"validar emaijjl\", function (){\r",
+							"   pm.expect(jsonData.data[1].last_name).to.eql('Ferguson');\r",
+							"});\r",
+							"    \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
